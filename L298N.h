@@ -37,8 +37,9 @@
 #define PWM_CHB   1     //Canale PWM 1 ESP32
 #define PWM_RES   12    //Resolution bits
 #define PWM_FREQ  5000  //Freq
-#define MTR_VMIN  65    //Valore % minimo per mettere in movimento i motori
-
+#ifndef MTR_VMIN
+#define MTR_VMIN  10    //Valore % minimo per mettere in movimento i motori
+#endif
 
 class L298N
 {
