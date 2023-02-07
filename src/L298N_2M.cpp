@@ -119,15 +119,15 @@ void L298N_2M::test(int nrtest) {
 
   switch(nrtest) 
   {
-    case '1': {
+    case 1: 
       this->run(3,80,1,2400);
       this->run(3,-70,1,2800);
       this->run(3,100,1,2000);
       this->run(3,-90,1,2200);
       this->run(3,100); delay(2000); this->stop(3); delay(500);
       this->run(3,100); delay(2000); this->brake(3); delay(500);
-      break;}
-    case '2': {
+      break;
+    case 2: 
       //Avanti e indietro a velocità variabile
       if(this->_debug) debug("**** Test Avanti e indietro a velocità variabile ****");
       for(int i=50; i<=100; i++) {this->run(3,i,1,200);}
@@ -138,8 +138,8 @@ void L298N_2M::test(int nrtest) {
       //Cerchi
       if(this->_debug) debug("**** Test2 cerchi ****");
       this->brake(3); delay(500);
-      break;}
-    case '3': {
+      break;
+    case 3: 
       if(this->_debug) debug("**** Test Avanti e indietro a velocità variabile ****");
       this->run(3,100,1,500);
       for(int i=100; i>=0; i--) {this->run(3,i,1,50);}
@@ -158,17 +158,17 @@ void L298N_2M::test(int nrtest) {
       for(int i=-100; i<=100; i++) {this->tank(i,-i,1,50);}
       this->tank(100,-100,1,500);
       this->brake(3); delay(2000);
-      break;}
-    case '4': {
+      break;
+    case 4: 
       if(this->_debug) debug("**** Test steer ****");
       this->steer(-100,100,1,1000);
       for(int i=-100; i<=100; i++) {this->steer(i,100,1,100);}
       this->steer(100,-100,1,1000);
       this->brake(3); delay(2000);
-      break;} 
+      break;
   }
 }
 void L298N_2M::demo() {
   delay(1000);
-  this->test('3');
+  this->test(3);
 }
