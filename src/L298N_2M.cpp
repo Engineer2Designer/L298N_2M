@@ -63,7 +63,7 @@ void L298N_2M::run(int motor, int speed) {
 void L298N_2M::run(int motor, int speed, int value, int unit) {
   run(motor, speed);
   //TODO: if(value==1) -> unit is ms
-  delay(unit);
+  (value==1)?delay(unit):delay(unit*1000);
   brake(motor); 
 }
 void L298N_2M::steer(int turnRatio, int speed) {
@@ -94,7 +94,7 @@ void L298N_2M::steer(int turnRatio, int speed) {
 void L298N_2M::steer(int turnRatio, int speed, int value, int unit) {
   steer(turnRatio, speed);
   //TODO: if(value==1) -> unit is ms
-  delay(unit);
+  (value==1)?delay(unit):delay(unit*1000);
   brake(3); 
 }
 void L298N_2M::tank(int speedLeft, int speedRight) {
@@ -111,7 +111,7 @@ void L298N_2M::tank(int speedLeft, int speedRight) {
 void L298N_2M::tank(int speedLeft, int speedRight, int value, int unit) {
   tank(speedLeft, speedRight);
   //TODO: if(value==1) -> unit is ms
-  delay(unit);
+  (value==1)?delay(unit):delay(unit*1000);
   brake(3); 
 }
   
