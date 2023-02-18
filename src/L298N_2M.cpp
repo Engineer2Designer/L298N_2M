@@ -75,19 +75,8 @@ void L298N_2M::steer(int turnRatio, int speed) {
   turnRatio = constrain(turnRatio, -100, 100); 
   speed = constrain(speed, -100, 100); 
   int speedLeft,speedRight;
-  
-  if(turnRatio<0) { //turnRatio <0 -> turn to left
-    speedLeft=100+turnRatio;
-    speedLeft=map(speedLeft, 0, 100, 0, speed);
-    speedRight=turnRatio*-1;
-    speedLeft=map(speedRight, 0, 100, 0, speed);
-  } else {  //turnRatio >0 -> turn to right
-    speedLeft=turnRatio;
-    speedLeft=map(speedLeft, 0, 100, 0, speed);
-    speedRight=100-turnRatio;
-    speedLeft=map(speedRight, 0, 100, 0, speed);  
-  }
-  
+  speedLeft=speed+turnRatio;
+  speedRight=speed-turnRatio;  
   run(1, speedLeft);
   run(2, speedRight);
 }
